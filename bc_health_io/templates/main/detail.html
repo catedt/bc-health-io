@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Main Detail{% endblock %}
+
+
+{% block content %}
+
+{% if block_data %}
+
+    <a href="{% url 'reception_mod' block_data.rid  %}"><button type="button" class="btn btn-primary">MODIFY</button></a>
+    <a href="{% url 'main' %}"><button type="button" class="btn btn-primary">LIST</button></a>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>id</td><td>{{ block_data.id }}</td>
+        </tr>
+        <tr>
+          <td>receptionId</td><td>{{ block_data.rid }} </td>
+        </tr>
+        <tr>
+          <td>receptionistId</td><td>{{ block_data.receptionistId }}</td>
+        </tr>
+        <tr>
+          <td>adopterId</td><td>{{ block_data.adopterId }}</td>
+        </tr>
+        <tr>
+          <td>createDate</td><td>{{ block_data.createDate }}</td>
+        </tr>
+        <tr>
+          <td>comments</td><td>{{ block_data.comments }}</td>
+        </tr>
+        <tr>
+          <td>opinionDate</td><td>{{ block_data.opinionDate }}</td>
+        </tr>
+        <tr>
+          <td>opinions</td><td>{{ block_data.opinions }}</td>
+        </tr>
+        <tr>
+          <td>confirmDate</td><td>{{ block_data.confirmDate }}</td>
+        </tr>
+        <tr>
+          <td>Resource URL</td><td><a href="{{ block_data.url }}">{{ block_data.url }} </a></td>
+        </tr>
+        <tr>
+          <td>hash</td><td>{{ block_data.hash }}</td>
+        </tr>
+
+        <tr>
+          <td>status</td><td>{{ block_data.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table">
+      <tbody>
+        <tr>
+
+        </tr>
+      </tbody>
+    </table>
+
+{% endif %}
+
+{% endblock %}

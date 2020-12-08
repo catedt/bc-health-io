@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+	<link href="{% static 'css/signin.css' %}" rel="stylesheet">
+<center>
+	<form id="login-form" method="post" action="/accounts/login/" class="form-signin">
+		{% csrf_token %}
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		<label for="id_username" class="sr-only">user id</label>
+		<input id="id_username" name="username" type="text" class="form-control" required autofocus>
+		<label for="id_password" class="sr-only">Password</label>
+		<input id="id_password" name="password" type="password" class="form-control" required>
+		{% if form.errors %}
+			<p class=" label label-danger">
+				Your username and password didn't match.
+				Please try again.
+			</p>
+		{% endif %}
+
+		<button  class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+		<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+</center>
+{% endblock %}

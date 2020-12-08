@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Main List{% endblock %}
+
+{% block content %}
+
+{% if latest_data_list %}
+<a href="{% url 'reception_mod' 'new' %}"><button type="button" class="btn btn-primary">NEW</button></a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">status</th>
+      <th scope="col">receptionistId</br>adopterId</th>
+      <th scope="col">comments</th>
+      <th scope="col">createDate</th>
+      <th scope="col">opinionDate</th>
+      <th scope="col">confirmDate</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for data in latest_data_list %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ data.status }}</td>
+      <td>{{ data.receptionistId }}</br>{{ data.adopterId }}</td>
+      <td><a href="/main/{{ data.rid }}/">{{ data.comments }} </a></td>
+      <td>{{ data.createDate }}</td>
+      <td>{{ data.opinionDate }}</td>
+      <td>{{ data.confirmDate }}</td>
+    </tr>
+     {% endfor %}
+
+  </tbody>
+</table>
+
+
+    </ul>
+{% endif %}
+
+
+{% endblock %}

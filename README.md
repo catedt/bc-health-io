@@ -1,2 +1,2 @@
-# bc_health_io
-Vyper Ethereum Blockchain Django Project
+# bc-health-io
+BlockChain Health Service IO

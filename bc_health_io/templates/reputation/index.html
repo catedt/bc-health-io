@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Main List{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'reputation_mod' 'new' %}"><button type="button" class="btn btn-primary">NEW_DOCTOR</button></a>
+
+{% if latest_data_list %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">repute</th>
+      <th scope="col">doctorId</th>
+      <th scope="col">email</th>
+      <th scope="col">createDate</th>
+      <th scope="col">updateDate</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for data in latest_data_list %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ data.repute }}</td>
+      <td><a href="/reputation/{{ data.doctorId }}/">{{ data.doctorId }} </a></td>
+      <td><a href="/reputation/{{ data.doctorId }}/">{{ data.email }} </a></td>
+      <td>{{ data.createDate }}</td>
+      <td>{{ data.updateDate }}</td>
+    </tr>
+     {% endfor %}
+
+  </tbody>
+</table>
+
+
+    </ul>
+{% endif %}
+
+
+{% endblock %}

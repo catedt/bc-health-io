@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Data {% endblock %}
+
+{% block content %}
+
+    <form action="{% url 'reputation_mod' data_id %}" method="post">
+        {% csrf_token %}
+        {% if block_data %}
+            {{ form.as_p }}
+        {% endif %}
+        <button type="submit" class="btn btn-primary">SAVE</button>
+    </form>
+
+{% endblock %}

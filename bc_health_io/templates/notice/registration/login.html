@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		{% block title %}<title>Login</title>{% endblock %}
+		<meta name="description" content="TOOKTOOK Admin" />
+
+		<link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet"/>
+		<script src="{% static 'js/admin.js' %}"></script>
+
+	</head>
+	<body>
+        {% block content %}
+		<div class="login_wrap">
+
+				<div class="login_outer">
+				<div class="login_inner">
+					<div class="login_box">
+											<img src="{% static 'images/logo_login.jpg' %}"><br>
+			<form id="login-form" method="post" action="/accounts/login/">
+                {% csrf_token %}
+                <input id="id_username" name="username"
+                                   type="text" class="form-control">
+				<input id="id_password" name="password"
+                                   type="password" class="form-control">
+                {% if form.errors %}
+                    <p class=" label label-danger">
+                        Your username and password didn't match.
+                        Please try again.
+                    </p>
+                {% endif %}
+
+                <input type="submit" value="Login"
+                        class="login_submit" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+						<div class="login_copy">© TOOKTOOK : Corp All Rights Reserved</div>
+                    </div>
+
+
+				</div>
+				</div>
+		</div>
+        {% endblock %}
+	</body>
+</html>

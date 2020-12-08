@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Community {% endblock %}
+
+{% block content %}
+</br>
+</br>
+</br>
+</br>
+
+<center>아직 등록된 글이 없습니다.</center>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+{% if latest_data_list %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">status</th>
+      <th scope="col">receptionId</th>
+      <th scope="col">user</th>
+      <th scope="col">comments</th>
+      <th scope="col">createDate</th>
+      <th scope="col">notice</th>
+      <th scope="col">noticeDate</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for data in latest_data_list %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ data.status }}</td>
+      <td>{{ data.receptionistId }}</td>
+      <td>{{ data.adopterId }}</td>
+      <td><a href="/main/{{ data.rid }}/">{{ data.comments }} </a></td>
+      <td>{{ data.createDate }}</td>
+      <td>{{ data.opinionDate }}</td>
+      <td>{{ data.confirmDate }}</td>
+    </tr>
+     {% endfor %}
+
+  </tbody>
+</table>
+
+
+    </ul>
+{% endif %}
+
+
+{% endblock %}

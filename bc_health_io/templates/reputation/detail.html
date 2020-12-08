@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Main Detail{% endblock %}
+
+
+{% block content %}
+
+{% if reputation_data %}
+
+    <a href="{% url 'reputation_mod' reputation_data.doctorId  %}"><button type="button" class="btn btn-primary">MODIFY</button></a>
+    <a href="{% url 'reputation' %}"><button type="button" class="btn btn-primary">LIST</button></a>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>ReputationData</td><td></td>
+        </tr>
+        <tr>
+          <td>doctorId</td><td>{{ reputation_data.doctorId }}</td>
+        </tr>
+        <tr>
+          <td>email</td><td>{{ reputation_data.email }}</td>
+        </tr>
+        <tr>
+          <td>createDate</td><td>{{ reputation_data.createDate }}</td>
+        </tr>
+        <tr>
+          <td>updateDate</td><td>{{ reputation_data.updateDate }}</td>
+        </tr>
+        <tr>
+          <td>repute</td><td>{{ reputation_data.repute }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>TransactionData</td><td></td>
+        </tr>
+        <tr>
+          <td>contractAddress</td><td> {{ transact_data.contractAddress }} </td>
+        </tr>
+        <tr>
+          <td>repute</td><td> {{ transact_data.repute }} </td>
+        </tr>
+        <tr>
+          <td>state</td><td> {{ transact_data.state }} </td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}

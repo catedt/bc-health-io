@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+</br>
+</br>
+ <center> Hi {{ user.username }}! </center>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+{% else %}
+</br>
+</br>
+<center>
+  <p>You are not logged in</p>
+  | <a href="{% url 'login' %}">login</a> |
+</center>
+</br>
+</br>
+{% endif %}
+
+    <!--
+<h1>Message board homepage</h1>
+<ul>
+    {% for notice in notices_list %}
+      <li>{{ notice.text }} {{ notice.reg_date }}</li>
+    {% endfor %}
+</ul>
+-->
+
+{% endblock %}
